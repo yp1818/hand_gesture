@@ -12,19 +12,19 @@ app = Flask(__name__)
 
 def load_sign_model():
     model_dir = "model"
-    h5_path = os.path.join(model_dir, "model-bw_dru.h5")  # 👈 your actual file name
+    h5_path = os.path.join(model_dir, "model-bw_dru.h5")  #  your actual file name
 
     try:
         if os.path.exists(h5_path):
-            print("📂 Loading model directly from .h5 file...")
+            print(" Loading model directly from .h5 file...")
             model = load_model(h5_path, compile=False)
-            print("✅ Model loaded successfully from .h5 file.")
+            print(" Model loaded successfully from .h5 file.")
             return model
         else:
-            print("❌ model-bw_dru.h5 not found in 'model' folder.")
+            print(" model-bw_dru.h5 not found in 'model' folder.")
             return None
     except Exception as e:
-        print(f"⚠️ Failed to load model properly: {e}")
+        print(f" Failed to load model properly: {e}")
         return None
 
 model = load_sign_model()
@@ -33,7 +33,7 @@ model = load_sign_model()
 
 camera = cv2.VideoCapture(0)
 if not camera.isOpened():
-    print("⚠️ Warning: Camera not accessible.")
+    print(" Warning: Camera not accessible.")
 
 # ------------------------- FRAME GENERATOR -------------------------
 
@@ -97,5 +97,6 @@ def video():
 # ------------------------- MAIN -------------------------
 
 if __name__ == "__main__":
-    print("🚀 Starting Application...")
+    print(" Starting Application...")
     app.run(debug=True)
+
